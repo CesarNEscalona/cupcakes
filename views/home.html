@@ -22,7 +22,12 @@
         <div class="col-md-4">
 
     <h4 class="display-5">Your name: </h4>
-        <input class="form-control" type="text" name="fname" id="fname" placeholder="Please input your name"><br>
+        <input class="form-control" type="text" name="name" id="name"
+               placeholder="Please input your name" value="{{ @userName }}"><br>
+            <check if="{{ isset(@errors['name']) }}">
+                <!-- add styles -->
+                <span class="err">{{ @errors['name'] }}</span>
+            </check>
 
             <h4 class="display-5">Cupcake Flavors: </h4>
 
@@ -34,12 +39,12 @@
                     </check>
                     > {{ ucFirst(@flavor) }}</label><br>
             </repeat>
-
+            <check if="{{ isset(@errors['flavors']) }}">
+                <!-- add styles -->
+                <span class="err">{{ @errors['flavors'] }}</span>
+            </check>
         </div>
-        <check if="{{ isset(@errors['flavors']) }}">
-            <!-- add styles -->
-            <span class="err">{{ @errors['flavors'] }}</span>
-        </check>
+
         <div class="col-md-12"><br><br>
         <div class="text-left">
             <input class="btn btn-success"
