@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Cupcake Fundraiser</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="styles/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<nav class="navbar text-center navbar-expand-md fixed-top">
+    <a class="navbar-brand" href="#">Cupcake Fundraiser</a>
+</nav>
+<body>
+<div class="container bg-light">
+    <h1>Cupcake Fundraiser</h1>
+    <form action="#" method="post" class="form">
+        <div class="col-md-4">
+
+    <h4 class="display-5">Your name: </h4>
+        <input class="form-control" type="text" name="fname" id="fname" placeholder="Please input your name"><br>
+
+            <h4 class="display-5">Cupcake Flavors: </h4>
+
+            <repeat group="{{ @condiments }}" value="{{ @condiment }}">
+
+                <label><input type="checkbox"
+                              name="flavors[]"
+                              value="{{ @flavor }}"
+                    <check if="{{ in_array(@flavor, @userFlavors) }}">checked="checked"
+                    </check>
+                    > {{ ucFirst(@flavor) }}</label><br>
+            </repeat>
+
+        </div>
+        <check if="{{ isset(@errors['flavors']) }}">
+            <!-- add styles -->
+            <span class="err">{{ @errors['flavors'] }}</span>
+        </check>
+
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>
