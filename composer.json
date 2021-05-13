@@ -1,0 +1,16 @@
+{
+  "name" : "cescalona/328/cupcakes",
+  "authors": [
+    {
+      "name": "Phillip Ball",
+      "email": "pball@mail.greenriver.edu"
+    },
+    {
+      "name": "Cesar Escalona",
+      "email": "cescalona@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
