@@ -3,8 +3,13 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+//Start a session
+session_start();
+
 // Require the autoload file
 require_once('vendor/autoload.php');
+require_once ('model/data-layer.php');
+require_once ('model/validation.php');
 
 // Instantiate the base class..similar to Java - Base f3 = new Base();
 $f3 = Base::instance();
@@ -34,6 +39,8 @@ $f3->route('GET|POST /', function ($f3) {
         }
     }
 
+    //Get the condiments from the Model and send them to the View
+    $f3->set('flavors', getFlavors());
     // Add the data to the hive
     $f3->set('userFlavors', $userFlavors);
 
